@@ -1,19 +1,17 @@
-function Animal(name) {
+function Dog(name) {
   this.name = name;
-}
 
-Animal.prototype.sayHi = function() {
-  	alert(this.name + ", says 'Meow'");
-}
+  this.sayHi = function() {
+  	alert(this.name + ", says 'Bark'");
+  }
+};
 
 function Cat(name) {
-  Animal.call(this, name);
+  Dog.call(this, name);
 }
 
-Cat.prototype = Object.create(Animal.prototype);
-
-var animal = new Animal("Someone");
+var dog = new Dog("Bob");
 var cat = new Cat("Barsik");
 
-animal.sayHi();
+dog.sayHi();
 cat.sayHi();

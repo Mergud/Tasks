@@ -1,33 +1,24 @@
-console.log("Task 1");
-console.log("Factorial");
+(function(){
 
-var res;
-
-(function factorial(num){
-    num = parseInt(prompt("Enter your number: ")); 
+	function factorial(num){ 
     res = 1;
 
     for(var i=1; i<=num; i++)
         res *= i;
     console.log("The factorial of a number " + num + " equals " + res);
-}());
+};
 
-console.log("Pow");
 
-(function pow(a, n){
-	a = parseInt(prompt("Enter number: "));
-	n = parseInt(prompt("Enter pow: "));
+function pow(a, n){
 
-	res = Math.pow(a, n);
+	result = Math.pow(a, n);
 
-	console.log("Your answer: " + res);
-}());
+	console.log("Initial number " + a + ", his pow " + n + ", equals " + result);
+};
 
-console.log("Primorial");
 
-(function primorial(primeNum){
-	primeNum = parseInt(prompt("Enter number: "));
-	res = 1;
+function primorial(primeNum){
+	answer = 1;
 
 		for(var i = 2; i < primeNum + 1; i++){
 
@@ -35,7 +26,13 @@ console.log("Primorial");
 			for(var j = 2; j < i; j++){
 				if(i % j == 0) simple = false;
 			}
-				if(simple) res *= i;
+				if(simple) answer *= i;
 		}
-	console.log("Answer: " + res);
-}());
+	console.log("Number: " + primeNum + " and his primorial " + answer);
+};
+
+factorial(4);
+pow(4, 2);
+primorial(12);
+
+})();

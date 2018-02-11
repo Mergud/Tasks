@@ -1,21 +1,20 @@
-(function(){
+var math = (function () {
 
-	function factorial(num){ 
+function factorial(num){ 
     res = 1;
 
     for(var i=1; i<=num; i++)
         res *= i;
-    console.log("The factorial of a number " + num + " equals " + res);
+    return res;
 };
 
-
-function pow(a, n){
-
-	result = Math.pow(a, n);
-
-	console.log("Initial number " + a + ", his pow " + n + ", equals " + result);
+function pow(x, n) {
+  if (n != 1) {
+    return x * pow(x, n - 1);
+  } else {
+    return x;
+  }
 };
-
 
 function primorial(primeNum){
 	answer = 1;
@@ -28,11 +27,17 @@ function primorial(primeNum){
 			}
 				if(simple) answer *= i;
 		}
-	console.log("Number: " + primeNum + " and his primorial " + answer);
+		return answer;
 };
 
-factorial(4);
-pow(4, 2);
-primorial(12);
+return {
+	factN: factorial,
+	powN: pow,
+	primeN: primorial
+}
 
 })();
+
+alert(math.factN(4));
+alert(math.powN(4, 2));
+alert(math.primeN(12));
